@@ -3,7 +3,7 @@ with open('final.txt', 'r') as f:
 
 
 def hello(text):
-    print(f'Привет, {text}')
+    print(f'Привет, {text}, с началом учёбы!')
 
 
 if __name__ == '__main__':
