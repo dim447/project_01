@@ -1,31 +1,16 @@
-class Student:
-    def __init__(self, fname, age, sex):
-        self.name = fname
-        self.age = age
-        self.sex = sex
+# This is a sample Python script.
 
-    def __str__(self):
-        return f"Студент: {self.name} --> " \
-               f"возраст: {self.age} лет --> " \
-               f"пол: {self.sex}."
+# Press ⌃R to execute it or replace it with your code.
+# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
 
 
-class Student_man(Student):
-    def __init__(self, sex, fname, age):
-        super().__init__(fname, age, sex)
-        self.sex = 'man'
+def print_hi(name):
+    # Use a breakpoint in the code line below to debug your script.
+    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
 
 
-with open('final.txt', 'r') as f:
-    name = f.readlines()
-
-
-def hello(text):
-    print(text)
-
-
+# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    student = Student_man(fname=name[0].rstrip('\n'), age=55, sex='')
-    student1 = Student(fname=name[1].rstrip('\n'), age=45, sex='woman')
-    hello(student)
-    hello(student1)
+    print_hi('PyCharm')
+
+# See PyCharm help at https://www.jetbrains.com/help/pycharm/
