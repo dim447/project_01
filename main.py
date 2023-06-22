@@ -7,7 +7,7 @@ class Student:
     def __str__(self):
         return f"Студент: {self.name} --> " \
                f"возраст: {self.age} лет --> " \
-               f"пол: {self.sex}. "
+               f"пол: {self.sex}."
 
 
 class Student_man(Student):
