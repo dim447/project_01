@@ -12,18 +12,17 @@ class Student_man(Student):
 
 
 with open('final.txt', 'r') as f:
-    name = f.read()
+    name = f.readlines()
+    # print(name)
 
 
 def hello(text):
-    print(f'Привет, {text}, с началом учёбы!')
-
-
-if __name__ == '__main__':
-    hello(name)
-
-    student = Student_man(fname=name, age=55, sex='')
-    student1 = Student(fname=name, age=55, sex='woman')
     print(f'Студент: {student.name}, возраст: {student.age}, пол: {student.sex}')
     print(f'Студент: {student1.name}, возраст: {student1.age}, пол: {student1.sex}')
 
+
+if __name__ == '__main__':
+    student = Student_man(fname=name[0].rstrip('\n'), age=55, sex='')
+    student1 = Student(fname=name[1].rstrip('\n'), age=45, sex='woman')
+    hello(student)
+    # hello(student1)
