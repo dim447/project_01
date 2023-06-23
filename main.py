@@ -27,6 +27,6 @@ def hello(text):
 
 if __name__ == '__main__':
     student = Student_man(fname=name[0].rstrip('\n'), age=55, sex='')
-    student1 = Student(fname=name[1].rstrip('\n'), age=45, sex='woman')
+    # student1 = Student(fname=name[1].rstrip('\n'), age=45, sex='woman')
     hello(student)
-    hello(student1)
+    # hello(student1)
