@@ -23,6 +23,7 @@ with open('final.txt', 'r') as f:
 # новая правка для junior Это правка в junior
 def hello(text):
     print(text)
+# новая правка для junior
 
 
 if __name__ == '__main__':
