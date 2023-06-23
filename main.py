@@ -20,6 +20,7 @@ with open('final.txt', 'r') as f:
     name = f.readlines()
 
 
+# новая правка для junior
 def hello(text):
     print(text)
 
