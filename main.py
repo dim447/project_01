@@ -20,7 +20,7 @@ with open('final.txt', 'r') as f:
     name = f.readlines()
 
 
-# новая правка для junior
+# новая правка для junior Это правка в junior
 def hello(text):
     print(text)
 
