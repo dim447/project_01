@@ -20,14 +20,13 @@ with open('final.txt', 'r') as f:
     name = f.readlines()
 
 
-# новая правка для junior Это правка в junior
-def hello(text):
-    print(text)
+# def hello(text):
+#     print(text)
 # новая правка для junior
 
 
 if __name__ == '__main__':
     student = StudentMan(fname=name[0].rstrip('\n'), age=55, sex='')
     student1 = Student(fname=name[1].rstrip('\n'), age=45, sex='woman')
-    hello(student)
-    hello(student1)
+    print(student)
+    print(student1)
