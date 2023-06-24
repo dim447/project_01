@@ -1,4 +1,4 @@
-''' Простенький файл приветствие берёт имя и фамилию из файла final.txt и печатает '''
+# Простенький файл приветствие берёт имя и фамилию из файла final.txt и печатает 
 class Student:
     def __init__(self, fname, age, sex):
         self.name = fname
@@ -11,7 +11,7 @@ class Student:
                f"пол: {self.sex}."
 
 
-class Student_man(Student):
+class StudentMan(Student):
     def __init__(self, sex, fname, age):
         super().__init__(fname, age, sex)
         self.sex = 'man'
@@ -26,7 +26,5 @@ def hello(text):
 
 
 if __name__ == '__main__':
-    student = Student_man(fname=name[0].rstrip('\n'), age=55, sex='')
-    # student1 = Student(fname=name[1].rstrip('\n'), age=45, sex='woman')
+    student = StudentMan(fname=name[0].rstrip('\n'), age=55, sex='')
     hello(student)
-    # hello(student1)
