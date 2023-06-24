@@ -10,7 +10,7 @@ class Student:
                f"пол: {self.sex}."
 
 
-class Student_man(Student):
+class StudentMan(Student):
     def __init__(self, sex, fname, age):
         super().__init__(fname, age, sex)
         self.sex = 'man'
@@ -27,7 +27,7 @@ def hello(text):
 
 
 if __name__ == '__main__':
-    student = Student_man(fname=name[0].rstrip('\n'), age=55, sex='')
+    student = StudentMan(fname=name[0].rstrip('\n'), age=55, sex='')
     student1 = Student(fname=name[1].rstrip('\n'), age=45, sex='woman')
     hello(student)
     hello(student1)
