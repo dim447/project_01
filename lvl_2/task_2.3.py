@@ -25,9 +25,6 @@ data = None
 
 def switch_it_up(number):
     try:
-        print(dict_num[number])
+        return dict_num[number]
     except KeyError:
-        print(data)
-
-
-switch_it_up(9)
+        return data
