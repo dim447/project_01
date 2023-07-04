@@ -6,6 +6,7 @@
 # Выведите общее время звучания трех случайных песен в формате
 # Три песни звучат ХХХ минут
 import random
+import datetime
 
 
 my_favorite_songs = [
@@ -72,3 +73,12 @@ print(f'Три песни звучат {round(sum_time, 2)} минут')
 # Пункт D.
 # Переведите минуты и секунды в формат времени. Используйте модуль datetime 
 
+random_my_favorite_songs = random.choices(my_favorite_songs, k=3)
+print(random_my_favorite_songs)
+sum_time = 0
+for i in random_my_favorite_songs:
+    sum_time += i[1]
+seconds = (int(sum_time) * 60) + (sum_time - int(sum_time)) * 100
+time_songs = str(datetime.timedelta(seconds=seconds))
+
+print(f'Три песни звучат {time_songs}')
