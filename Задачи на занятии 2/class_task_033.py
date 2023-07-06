@@ -11,5 +11,5 @@ employees = {'Alice': 100000,
              'Eve': 93121
              }
 
-more_zarp = [keys for keys, value in employees.items() if value >= 100000]
+more_zarp = [key for key, value in employees.items() if value >= 100000]
 print(f'Сотрудники зарабатывающие больше 100_000 долларов в год: {more_zarp}')
