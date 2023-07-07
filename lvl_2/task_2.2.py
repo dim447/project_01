@@ -12,13 +12,27 @@ months = [
         ]
 
 
-def quarter_of(month):
-    if month in range(1, 4):
-        print(f'месяц {month} ({months[month - 1]}) является частью первого квартала;')
-    elif month in range(4, 7):
-        print(f'месяц {month} ({months[month - 1]}) является частью второго квартала;')
-    elif month in range(7, 10):
-        print(f'месяц {month} ({months[month - 1]}) является частью третьего квартала;')
-    else:
-        print(f'месяц {month} ({months[month - 1]}) является частью четвертого квартала;')
+# def quarter_of(month):
+#     if month in range(1, 4):
+#         print(f'месяц {month} ({months[month - 1]}) является частью первого квартала;')
+#     elif month in range(4, 7):
+#         print(f'месяц {month} ({months[month - 1]}) является частью второго квартала;')
+#     elif month in range(7, 10):
+#         print(f'месяц {month} ({months[month - 1]}) является частью третьего квартала;')
+#     else:
+#         print(f'месяц {month} ({months[month - 1]}) является частью четвертого квартала;')
 
+
+def quarter_of(month):
+    match month:
+        case 1 | 2 | 3:
+            print(f'месяц {month} ({months[month - 1]}) является частью первого квартала;')
+        case 4 | 5 | 6:
+            print(f'месяц {month} ({months[month - 1]}) является частью второго квартала;')
+        case 7 | 8 | 9:
+            print(f'месяц {month} ({months[month - 1]}) является частью третьего квартала;')
+        case 10 | 11 | 12:
+            print(f'месяц {month} ({months[month - 1]}) является частью четвертого квартала;')
+
+
+# quarter_of(8)
