@@ -84,7 +84,7 @@ def read_all_students():
         print(f'ID Студента: {_[0]}\nИмя студента: {_[1]}\nID школы: {_[2]}\n\n')
 
 
-def sql_delete_command(data):
+def sql_delete_student(data):
     cur.execute('DELETE FROM students WHERE student_name == ?', (data,))
     base_connect.commit()
 
@@ -94,7 +94,7 @@ if __name__ == '__main__':
     on_startup()
     # sql_add_student((205, "Семен", 5))
     # sql_read_student(204)
-    # sql_delete_command("Игорь")
+    # sql_delete_student("Игорь")
     # for i in range(len(list_of_students)):
     #     name_student = Students(list_of_students[i][0], list_of_students[i][1], list_of_students[i][2])
     #     sql_add_student((name_student.student_id, name_student.student_name, name_student.school_id))
