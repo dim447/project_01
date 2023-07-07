@@ -27,10 +27,11 @@
 #   - проявите фантазию :)
 
 class Matrix:
-    def __init__(self, rows, cols):
-        self.field = [[0 for _ in range(cols)] for _ in range(rows)]
+    def __init__(self, value, rows, cols):
+        self.field = [[value for _ in range(cols)] for _ in range(rows)]
         self.rows = rows
         self.cols = cols
+        self.value = value
 
     def get_value(self, row, col):
         if row in range(self.rows) and col in range(self.cols):
@@ -47,10 +48,9 @@ class Matrix:
         return self.cols
 
 
-tab = Matrix(3, 5)
-tab.set_value(1, 2, 3)
-for i in range(tab.n_rows()):
-    for j in range(tab.n_cols()):
-        print(tab.get_value(i, j), end=' ')
+table = Matrix(9, 5, 5)
+table.set_value(1, 2, 3)
+for i in range(table.n_rows()):
+    for j in range(table.n_cols()):
+        print(table.get_value(i, j), end=' ')
     print()
-print(tab.n_cols())
