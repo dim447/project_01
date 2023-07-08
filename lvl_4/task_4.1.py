@@ -99,6 +99,6 @@ if __name__ == '__main__':
     #     name_student = Students(list_of_students[i][0], list_of_students[i][1], list_of_students[i][2])
     #     sql_add_student((name_student.student_id, name_student.student_name, name_student.school_id))
     read_all_students()
-    sql_read_student(222)
+    # sql_read_student(222)
 
 ##############################################################

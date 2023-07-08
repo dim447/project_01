@@ -16,9 +16,9 @@ fruits = ['Яблоко', 'Апельсин', 'Клубника']
 #   Номер "продукта" в списке - N 
 
 shop_list.insert(2, 'Рыба')
-print(shop_list)
+# print(shop_list)
 shop_list += fruits
-print(shop_list)
+# print(shop_list)
 shop_list.remove('Картофель')
 print(shop_list)
 print(f"Номер продукта -Хлеб- в списке {shop_list.index('Хлеб')}\nНомер продукта -Апельсин- в списке {shop_list.index('Апельсин')}")

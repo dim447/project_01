@@ -6,7 +6,7 @@
 #   "This is an example!" ==> "sihT si na !elpmaxe"
 #   "double  spaces"      ==> "elbuod  secaps"
 
-def string_up(string: str):
+def string_over(string: str):
     new_lst = []
     lst = string.split(' ')
     for i in lst:
@@ -14,5 +14,5 @@ def string_up(string: str):
     print(' '.join(new_lst))
 
 
-string_up("This is an example!")
-string_up("double  spaces")
+string_over("This is an example!")
+string_over("double  spaces")
