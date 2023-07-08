@@ -21,8 +21,10 @@ my_favorite_songs = [
     ['In This World', 4.02],
 ]
 
-random_my_favorite_songs = random.choices(my_favorite_songs, k=3)
-print(random_my_favorite_songs)
+random_my_favorite_songs = []
+random_my_favorite_songs.append(my_favorite_songs[1])
+random_my_favorite_songs.append(my_favorite_songs[4])
+random_my_favorite_songs.append(my_favorite_songs[6])
 sum_time = 0
 for i in random_my_favorite_songs:
     sum_time += i[1]
@@ -51,11 +53,13 @@ my_favorite_songs_dict = {
     'In This World': 4.02,
 }
 
-random_my_favorite_songs = random.choices(my_favorite_songs, k=3)
-print(random_my_favorite_songs)
+my_favorite_songs_time = []
+my_favorite_songs_time.append(my_favorite_songs_dict['Staying\' Alive'])
+my_favorite_songs_time.append(my_favorite_songs_dict['Easy'])
+my_favorite_songs_time.append(my_favorite_songs_dict['Beautiful Day'])
 sum_time = 0
-for i in random_my_favorite_songs:
-    sum_time += i[1]
+for i in my_favorite_songs_time:
+    sum_time += i
 sum_time_dec = (sum_time - int(sum_time))
 if sum_time_dec > 0.59:
     minutes = sum_time_dec * 100 // 60
@@ -69,12 +73,40 @@ print(f'Три песни звучат {round(sum_time, 2)} минут')
 # Сгенерируйте случайные песни с помощью модуля random
 # import random
 
+random_my_favorite_songs = random.choices(my_favorite_songs, k=3)
+# print(random_my_favorite_songs)
+sum_time = 0
+for i in random_my_favorite_songs:
+    sum_time += i[1]
+sum_time_dec = (sum_time - int(sum_time))
+if sum_time_dec > 0.59:
+    minutes = sum_time_dec * 100 // 60
+    seconds = sum_time_dec - 0.60
+    sum_time = int(sum_time) + minutes + seconds
+
+print(f'Три песни звучат {round(sum_time, 2)} минут')
+
+
+random_my_favorite_songs_time = random.choices(list(my_favorite_songs_dict.values()), k=3)
+# print(random_my_favorite_songs)
+sum_time = 0.0
+for i in random_my_favorite_songs_time:
+    sum_time += i
+sum_time_dec = (sum_time - int(sum_time))
+if sum_time_dec > 0.59:
+    minutes = sum_time_dec * 100 // 60
+    seconds = sum_time_dec - 0.60
+    sum_time = int(sum_time) + minutes + seconds
+
+print(f'Три песни звучат {round(sum_time, 2)} минут')
+
+
 # Дополнительно 
 # Пункт D.
 # Переведите минуты и секунды в формат времени. Используйте модуль datetime 
 
 random_my_favorite_songs = random.choices(my_favorite_songs, k=3)
-print(random_my_favorite_songs)
+# print(random_my_favorite_songs)
 sum_time = 0
 for i in random_my_favorite_songs:
     sum_time += i[1]
