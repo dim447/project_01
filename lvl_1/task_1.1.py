@@ -8,5 +8,9 @@ my_favorite_songs = 'Waste a Moment, Staying\' Alive, A Sorta Fairytale, Start M
 # Нельзя переопределять my_favorite_songs и запятая не должна выводиться.
 
 
-my_favorite_songs_lst = my_favorite_songs.split(',')
-print(my_favorite_songs_lst[0], my_favorite_songs_lst[-1], my_favorite_songs_lst[1], my_favorite_songs_lst[-2])
+# my_favorite_songs_lst = my_favorite_songs.split(',')
+# print(my_favorite_songs_lst[0], my_favorite_songs_lst[-1], my_favorite_songs_lst[1], my_favorite_songs_lst[-2])
+print(my_favorite_songs[0:14])
+print(my_favorite_songs[-13:])
+print(my_favorite_songs[16:30])
+print(my_favorite_songs[51:-15])
