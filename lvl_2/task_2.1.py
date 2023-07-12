@@ -10,6 +10,7 @@
 # * [5]                             -> min = 5, max = 5
 # функции sorted, max и min использовать нельзя!
 
+
 def minimum(arr):
     min_number = arr[0]
     for i in arr[1:]:
