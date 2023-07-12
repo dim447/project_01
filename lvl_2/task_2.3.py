@@ -7,7 +7,6 @@
 # switch_it_up(10000) -> None
 # Использовать условный оператор if-elif-else нельзя!
 
-
 dict_num = {
     0: "Zero",
     1: "One",
