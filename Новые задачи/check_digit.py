@@ -13,4 +13,11 @@
 #     Есть ли цифра 4 в числе 67845123654 между индексами 0 и 0? True
 #     Есть ли цифра 1 в числе 9999999999 между индексами 2 и 5? False
 
-
+number = input()
+if digit in number:
+    for _ in number:
+        if _ == digit:
+            pass
+else:
+    var = False
+print(number[0])

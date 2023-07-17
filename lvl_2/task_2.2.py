@@ -35,4 +35,4 @@ def quarter_of(month):
             print(f'месяц {month} ({months[month - 1]}) является частью четвертого квартала;')
 
 
-# quarter_of(8)
+quarter_of(2)
