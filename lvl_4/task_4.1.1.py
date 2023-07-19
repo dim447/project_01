@@ -46,6 +46,14 @@ def sql_add_school(data):
     base_connect.commit()
 
 
+def read_teacher_by_school(num):
+    ret = cur.execute('SELECT * FROM Teacher WHERE School_id == ?', [num]).fetchall()
+    for _ in ret:
+        print(f'➢ ID Учителя: {_[0]}\n➢ Имя Учителя: {_[1]}\n➢ ID школы: {_[2]}\n'
+              f'➢ Дата начала работы: {_[3]}\n➢ Специализация: {_[4]}\n➢ Зарплата: {_[5]}\n'
+              f'➢ Опыт работы: {_[6]}\n')
+
+
 def sql_read_teacher(number):
 #     # ret = cur.execute('SELECT * FROM students ORDER BY RANDOM() LIMIT 1').fetchone()
 #     # ret = cur.fetchone()
@@ -88,11 +96,8 @@ if __name__ == '__main__':
     # sql_read_teacher(107)
     # read_all_school()
     # read_all_teachers()
-    ret = cur.execute('SELECT * FROM Teacher WHERE School_id == ?', [2]).fetchall()
-    for _ in ret:
-        print(f'➢ ID Учителя: {_[0]}\n➢ Имя Учителя: {_[1]}\n➢ ID школы: {_[2]}\n'
-              f'➢ Дата начала работы: {_[3]}\n➢ Специализация: {_[4]}\n➢ Зарплата: {_[5]}\n'
-              f'➢ Опыт работы: {_[6]}\n')
-    base_connect.commit()
+    sql_add_teacher((110, 'Игоревна', 4, '1917-10-17', 'Директор', 130000, 1000))
+    read_teacher_by_school(3)
+    # base_connect.commit()
 
 ##############################################################
