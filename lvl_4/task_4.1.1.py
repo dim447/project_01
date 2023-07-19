@@ -33,17 +33,20 @@ def sql_start():
         'NOT NULL, Joining_Date TEXT NOT NULL, Speciality TEXT NOT NULL, Salary INTEGER NOT NULL, Experience INTEGER)'
                         )
     base_connect.commit()
+    base_connect.close()
 
 
 def sql_add_teacher(data):
     cur.execute('INSERT INTO Teacher (Teacher_Id, Teacher_Name, School_id, Joining_Date, '
                 'Speciality, Salary, Experience) VALUES (?,?,?,?,?,?,?)', tuple(data))
     base_connect.commit()
+    base_connect.close()
 
 
 def sql_add_school(data):
     cur.execute('INSERT INTO School (School_Id, School_Name, Place_Count) VALUES (?,?,?)', tuple(data))
     base_connect.commit()
+    base_connect.close()
 
 
 def read_teacher_by_school(num):
@@ -79,9 +82,14 @@ def read_all_school():
         print(f'➢ ID школы: {_[0]}\n➢ Название школы: {_[1]}\n➢ Количество мест: {_[2]}\n')
 
 
-# def sql_delete_student(data):
-#     cur.execute('DELETE FROM students WHERE student_name == ?', (data,))
-#     base_connect.commit()
+def sql_delete_teacher(data):
+    cur.execute('DELETE FROM Teacher WHERE Teacher_Name == ?', (data,))
+    base_connect.commit()
+
+
+def close_connection(base_connect):
+    if base_connect:
+        base_connect.close()
 
 
 ##############################################################
@@ -95,9 +103,9 @@ if __name__ == '__main__':
     # cur.execute('UPDATE Teacher SET Experience == ?', (200,))
     # sql_read_teacher(107)
     # read_all_school()
-    # read_all_teachers()
-    sql_add_teacher((110, 'Игоревна', 4, '1917-10-17', 'Директор', 130000, 1000))
-    read_teacher_by_school(3)
+    read_all_teachers()
+    # sql_add_teacher((110, 'Игоревна', 4, '1917-10-17', 'Директор', 130000, 1000))
+    # read_teacher_by_school(3)
     # base_connect.commit()
 
 ##############################################################

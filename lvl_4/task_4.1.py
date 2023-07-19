@@ -51,7 +51,7 @@ def on_startup():
 
 def sql_start():
     global base_connect, cur
-    base_connect = sq.connect("/Users/idim/PycharmProjects/project_01/lvl_4/teachers.db")
+    base_connect = sq.connect("/Users/idim/PycharmProjects/project_01/lvl_4/teachers1.db")
     cur = base_connect.cursor()
     if base_connect:
         pass
@@ -59,46 +59,67 @@ def sql_start():
     base_connect.execute(
         'CREATE TABLE IF NOT EXISTS students (student_id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, student_name TEXT, school_id INTEGER)')
     base_connect.commit()
+    # base_connect.close()
 
 
 def sql_add_student(data):
     cur.execute('INSERT INTO students (student_id, student_name, school_id) VALUES (?,?,?)', tuple(data))
     base_connect.commit()
+    # base_connect.close()
 
 
 def sql_read_student(number):
-    # ret = cur.execute('SELECT * FROM students ORDER BY RANDOM() LIMIT 1').fetchone()
-    # ret = cur.fetchone()
-    # # ret = cur.execute('SELECT * FROM table ORDER BY RANDOM() LIMIT 1')
     ret = cur.execute('SELECT * FROM students where student_id =?', [number]).fetchone()
     print(f'ID Студента: {ret[0]}\nИмя студента: {ret[1]}\nID школы: {ret[2]}')
-    # Название школы:ret)
-    # await bot.send_photo(message.from_user.id, ret[1], f'{ret[2]}\n{ret[3]}')
     base_connect.commit()
-    # base.close()
+    # base_connect.close()
 
 
 def read_all_students():
     ret = cur.execute('SELECT * FROM students').fetchall()
     for _ in ret:
         print(f'ID Студента: {_[0]}\nИмя студента: {_[1]}\nID школы: {_[2]}\n\n')
+    # base_connect.close()
+
+
+def get_student_by_student(number):
+    ret = cur.execute('SELECT * FROM students '
+                      'JOIN School ON School.School_id = students.school_id '
+                      'WHERE student_id =?', [number]).fetchone()
+    print(f'ID Студента: {ret[0]}\nИмя студента: {ret[1]}\nID школы: {ret[2]}\nНазвание школы: {ret[4]}\n'
+          f'Количество мест: {ret[5]}')
+    base_connect.commit()
+
+
+def get_student_by_school(number):
+    ret = cur.execute('SELECT * FROM students '
+                      'JOIN School ON School.School_id = students.school_id '
+                      'WHERE School.School_id =?', [number]).fetchall()
+    # print(ret)
+    for _ in ret:
+        print(f'ID Студента: {_[0]}\nИмя студента: {_[1]}\nID школы: {_[2]}\nНазвание школы: {_[4]}\n'
+              f'Количество мест: {_[5]}\n')
+    base_connect.commit()
 
 
 def sql_delete_student(data):
     cur.execute('DELETE FROM students WHERE student_name == ?', (data,))
     base_connect.commit()
+    # base_connect.close()
 
 
 ##############################################################
 if __name__ == '__main__':
     on_startup()
-    # sql_add_student((205, "Семен", 5))
-    # sql_read_student(204)
+    # sql_add_student((206, "Игорь", 4))
     # sql_delete_student("Игорь")
     # for i in range(len(list_of_students)):
     #     name_student = Students(list_of_students[i][0], list_of_students[i][1], list_of_students[i][2])
     #     sql_add_student((name_student.student_id, name_student.student_name, name_student.school_id))
-    read_all_students()
+    # read_all_students()
     # sql_read_student(222)
+    # get_student_by_student(222)
+    get_student_by_school(4)
+    base_connect.close()
 
 ##############################################################
