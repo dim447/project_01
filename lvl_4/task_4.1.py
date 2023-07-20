@@ -97,8 +97,7 @@ def get_student_by_school(number):
                       'WHERE School.School_id =?', [number]).fetchall()
     # print(ret)
     for _ in ret:
-        print(f'ID Студента: {_[0]}\nИмя студента: {_[1]}\nID школы: {_[2]}\nНазвание школы: {_[4]}\n'
-              f'Количество мест: {_[5]}\n')
+        print(f'ID Студента: {_[0]}\nИмя студента: {_[1]}\nID школы: {_[2]}\nНазвание школы: {_[4]}\n')
     base_connect.commit()
 
 
