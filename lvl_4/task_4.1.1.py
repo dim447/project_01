@@ -24,8 +24,8 @@ def sql_start():
     base_connect = sq.connect("/Users/idim/PycharmProjects/project_01/lvl_4/teachers1.db")
     cur = base_connect.cursor()
     if base_connect:
-        pass
-        # print('Data base connected Ok!')
+        # pass
+        print('Data base connected Ok!')
     base_connect.execute(
         'CREATE TABLE IF NOT EXISTS School (School_Id INTEGER NOT NULL PRIMARY KEY, School_Name TEXT NOT NULL, Place_Count INTEGER NOT NULL)')
     base_connect.execute(
@@ -33,6 +33,9 @@ def sql_start():
         'NOT NULL, Joining_Date TEXT NOT NULL, Speciality TEXT NOT NULL, Salary INTEGER NOT NULL, Experience INTEGER)'
                         )
     base_connect.commit()
+
+
+def data_base_close():
     base_connect.close()
 
 
@@ -40,13 +43,13 @@ def sql_add_teacher(data):
     cur.execute('INSERT INTO Teacher (Teacher_Id, Teacher_Name, School_id, Joining_Date, '
                 'Speciality, Salary, Experience) VALUES (?,?,?,?,?,?,?)', tuple(data))
     base_connect.commit()
-    base_connect.close()
+
 
 
 def sql_add_school(data):
     cur.execute('INSERT INTO School (School_Id, School_Name, Place_Count) VALUES (?,?,?)', tuple(data))
     base_connect.commit()
-    base_connect.close()
+
 
 
 def read_teacher_by_school(num):
@@ -65,7 +68,7 @@ def sql_read_teacher(number):
     print(f'➢ ID Учителя: {ret[0]}\n➢ Имя Учителя: {ret[1]}\n➢ ID школы: {ret[2]}\n'
           f'➢ Дата начала работы: {ret[3]}\n➢ Специализация: {ret[4]}\n➢ Зарплата: {ret[5]}\n'
           f'➢ Опыт работы: {ret[6]}\n')
-    base_connect.commit()
+
 
 
 def read_all_teachers():
@@ -74,6 +77,7 @@ def read_all_teachers():
         print(f'➢ ID Учителя: {_[0]}\n➢ Имя Учителя: {_[1]}\n➢ ID школы: {_[2]}\n'
               f'➢ Дата начала работы: {_[3]}\n➢ Специализация: {_[4]}\n➢ Зарплата: {_[5]}\n'
               f'➢ Опыт работы: {_[6]}\n')
+
 
 
 def read_all_school():
@@ -87,9 +91,6 @@ def sql_delete_teacher(data):
     base_connect.commit()
 
 
-def close_connection(base_connect):
-    if base_connect:
-        base_connect.close()
 
 
 ##############################################################
@@ -102,10 +103,10 @@ if __name__ == '__main__':
     #     sql_add_school((tuple_of_school[_][0], tuple_of_school[_][1], tuple_of_school[_][2]))
     # cur.execute('UPDATE Teacher SET Experience == ?', (200,))
     # sql_read_teacher(107)
-    # read_all_school()
-    read_all_teachers()
+    read_all_school()
+    # read_all_teachers()
     # sql_add_teacher((110, 'Игоревна', 4, '1917-10-17', 'Директор', 130000, 1000))
-    # read_teacher_by_school(3)
-    # base_connect.commit()
+    read_teacher_by_school(4)
+    data_base_close()
 
 ##############################################################
