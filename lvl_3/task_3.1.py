@@ -54,3 +54,6 @@ for i in range(table.n_rows()):
     for j in range(table.n_cols()):
         print(table.get_value(i, j), end=' ')
     print()
+
+print(f'Количество колонок: {table.n_cols()}')
+print(f'Количество строк: {table.n_rows()}')
