@@ -86,6 +86,18 @@ def get_student_by_student(number):  # Выввести инфу по студе
     base_connect.commit()
 
 
+def get_student_with_teacher(number):  # Выввести инфу по студенту по его ID JOIN инфу по учиталям в данной школе
+    ret = cur.execute('SELECT * FROM students '
+                      'JOIN Teacher ON Teacher.School_id = students.school_id '
+                      'WHERE student_id =?', [number]).fetchall()
+    print(f'ID Студента: {ret[0][0]}\nИмя студента: {ret[0][1]}\nID школы: {ret[0][2]}\n')
+    for _ in range(len(ret)):
+        print(f'ID Учителя: {ret[_][3]}\n'
+              f'Имя учителя: {ret[_][4]}\n'
+              f'Должность учителя: {ret[_][7]}\n')
+    base_connect.commit()
+
+
 def get_student_by_school(number):  # Выввести инфу по студенту по ID школы JOIN инфу по школе
     ret = cur.execute('SELECT * FROM students '
                       'JOIN School ON School.School_id = students.school_id '
@@ -111,7 +123,8 @@ if __name__ == '__main__':
     # read_all_students()
     # sql_read_student(222)
     # get_student_by_student(222)
-    get_student_by_school(4)
+    # get_student_by_school(4)
+    get_student_with_teacher(205)
     base_connect.close()
 
 ##############################################################
