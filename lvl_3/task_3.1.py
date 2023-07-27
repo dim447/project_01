@@ -36,7 +36,6 @@ class Matrix:
     def get_value(self, row, col):
         if row in range(self.rows) and col in range(self.cols):
             return self.field[row][col]
-        return
 
     def set_value(self, row, col, value):
         self.field[row][col] = value
@@ -55,5 +54,6 @@ for i in range(table.n_rows()):
         print(table.get_value(i, j), end=' ')
     print()
 
-print(f'Количество колонок: {table.n_cols()}')
-print(f'Количество строк: {table.n_rows()}')
+# print(table.get_value(1, 2))
+# print(f'Количество колонок: {table.n_cols()}')
+# print(f'Количество строк: {table.n_rows()}')
